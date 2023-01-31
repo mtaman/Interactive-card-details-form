@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive card details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./scss/style.min.css">
+
+</head>
+
+<body>
+    <img src="./images/bg-main-desktop.png" alt="" class="bg-disktop">
+    <img src="./images/bg-main-mobile.png" alt="" class="bg-mobil">
+    <div class="main">
+        <!-- Card start -->
+        <section class="card-display">
+            <!-- card-fornt -->
+            <div class="card-fornt">
+                <img src="./images/bg-card-front.png" alt="" class="bg-card-fornt">
+                <img src="./images/card-logo.svg" alt="" class="card-logo">
+                <p class="card-num-d">0000 0000 0000 0000</p>
+                <p class="card-holder-d">JANE APPLESEED</p>
+                <p class="card-ex-MM">00</p>
+                <p class="card-date-divender">/</p>
+                <p class="card-ex-YY">00</p>
+            </div>
+            <!-- card back -->
+            <div class="card-back">
+                <img src="./images/bg-card-back.png" alt="" class="bg-card-back">
+                <p class="card-cvc">000</p>
+            </div>
+        </section>
+        <!-- Card End -->
+
+        <section class="form-details">
+            <form action="/action_page.php" id="detailsForm" name="detailsForm">
+
+                <label for="cardHoldername">cardholder Name</label>
+                <input id="cardHoldername" name="cardHoldername" type="text" placeholder="e.g. Jane Appleseed"
+                    oninput="inputCardHoldername()">
+                <p id="errorMassage"></p>
+
+                <label for="cardNum">Card Number</label>
+                <input id="cardNum" name="cardNum" type="text" placeholder="e.g. 1234 5678 9123 0000"
+                    oninput="inputcardNumber()">
+                <p id="numerrorMasg"></p>
+
+
+                <div class="flex">
+                    <label for="expairdat" class="expairdat">Ex.Date (MM/YY)
+                        <br />
+                        <input id="expairdat" name="expairdat" type="text" placeholder="MM" oninput="inputMM()">
+                        <p id="MMDaterrorMasg"></p>
+
+                        <input id="expairdatY" name="expairdatY" type="text" placeholder="YY" oninput="inputYY()">
+                        <p id="YYDaterrorMasg"></p>
+                    </label>
+
+                    <label for="cvc" class="cvc">CVC
+                        <br />
+                        <input id="cardCvc" name="cardCvc" type="text" placeholder="e.g. 123" oninput="inputCvc()">
+                        <p id="cvcDaterrorMasg"></p>
+                    </label>
+                </div>
+                <button type="button" id="submit">Confirm</button>
+            </form>
+
+            <div class="thankYou" id="thankYOU">
+                <img src="./images/icon-complete.svg" alt="complete icon">
+                <h2 class="thankyou-h" id="thankyouHeader">Thank You</h2>
+                <p class="thankyouP" id="thankYouP">We've added your card details</p>
+                <button type="button" id="thank">Continue</button>
+            </div>
+        </section>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
