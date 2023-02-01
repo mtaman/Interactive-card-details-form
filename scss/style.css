@@ -161,6 +161,7 @@ body .bg-disktop {
   font-weight: 500;
   letter-spacing: 2px;
   margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
 .main .form-details form label.cardNum, .main .form-details form label.inexpairdat, .main .form-details form label.cvc {
@@ -170,6 +171,8 @@ body .bg-disktop {
 .main .form-details form input {
   width: 350px;
   padding: 10px;
+  font-size: 1rem;
+  text-transform: capitalize;
   cursor: pointer;
   border: 1px solid var(--Dargrayisviolet);
   -webkit-border-radius: 5px;
@@ -187,7 +190,15 @@ body .bg-disktop {
   border-left-color: #600594;
 }
 
+.main .form-details form input.error {
+  border-top-color: #ff5252;
+  border-right-color: #ff5252;
+  border-bottom-color: #ff5252;
+  border-left-color: #ff5252;
+}
+
 .main .form-details form input::placeholder {
+  font-size: 14px;
   font-weight: 300;
 }
 
@@ -204,9 +215,10 @@ body .bg-disktop {
 .main .form-details form #YYDaterrorMasg,
 .main .form-details form #MMDaterrorMasg,
 .main .form-details form #cvcDaterrorMasg {
-  font-size: .75rem;
+  font-size: 12px;
   font-size: 500;
   color: var(--Red);
+  text-transform: none;
   padding: 2px 0 0 2px;
   display: none;
 }

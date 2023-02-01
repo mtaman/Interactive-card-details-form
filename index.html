@@ -26,16 +26,16 @@
             <div class="card-fornt">
                 <img src="./images/bg-card-front.png" alt="" class="bg-card-fornt">
                 <img src="./images/card-logo.svg" alt="" class="card-logo">
-                <p class="card-num-d">0000 0000 0000 0000</p>
-                <p class="card-holder-d">JANE APPLESEED</p>
-                <p class="card-ex-MM">00</p>
+                <p id="dcardnum" class="card-num-d">0000 0000 0000 0000</p>
+                <p id="dcardname" class="card-holder-d">JANE APPLESEED</p>
+                <p id="dcardMM" class="card-ex-MM">00</p>
                 <p class="card-date-divender">/</p>
-                <p class="card-ex-YY">00</p>
+                <p id="dcardYY" class="card-ex-YY">00</p>
             </div>
             <!-- card back -->
             <div class="card-back">
                 <img src="./images/bg-card-back.png" alt="" class="bg-card-back">
-                <p class="card-cvc">000</p>
+                <p id="dcardcvc" class="card-cvc">000</p>
             </div>
         </section>
         <!-- Card End -->
@@ -58,10 +58,11 @@
                     <label for="expairdat" class="inexpairdat">Ex.Date (MM/YY)
                         <br />
                         <input id="expairdat" name="expairdat" type="text" placeholder="MM" oninput="inputMM()">
-                        <p id="MMDaterrorMasg"></p>
 
                         <input id="expairdatY" name="expairdatY" type="text" placeholder="YY" oninput="inputYY()">
                         <p id="YYDaterrorMasg"></p>
+                        <p id="MMDaterrorMasg"></p>
+
                     </label>
 
                     <label for="cvc" class="cvc">CVC
@@ -84,7 +85,9 @@
 
     </div>
 
-
+    <footer>
+        <script src="./js/script.js"></script>
+    </footer>
 
 </body>
 
