@@ -15,9 +15,12 @@
   padding: 0;
 }
 
+.hiden {
+  display: none;
+}
+
 body {
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
@@ -36,7 +39,6 @@ body .bg-disktop {
   position: absolute;
   width: 40%;
   height: 100%;
-  left: 0;
 }
 
 .main {
@@ -123,6 +125,13 @@ body .bg-disktop {
   text-transform: uppercase;
 }
 
+.main .card-display .card-fornt .card-date-divender {
+  bottom: 32px;
+  right: 66px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
 .main .card-display .card-back {
   left: 280px;
   bottom: 130px;
@@ -154,12 +163,23 @@ body .bg-disktop {
   margin-bottom: 5px;
 }
 
-.main .form-details form label#cardHoldername, .main .form-details form label#cardNum, .main .form-details form label#expairdat, .main .form-details form label.cvc {
+.main .form-details form label.cardNum, .main .form-details form label.inexpairdat, .main .form-details form label.cvc {
   margin-top: 30px;
 }
 
 .main .form-details form input {
-  width: 100%;
+  width: 350px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid var(--Dargrayisviolet);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.main .form-details form input:focus {
   outline: 0 solid #6448fe;
   border-top-color: #6448fe;
   border-right-color: #600594;
@@ -171,6 +191,14 @@ body .bg-disktop {
   font-weight: 300;
 }
 
+.main .form-details form input#expairdatY, .main .form-details form input#expairdat, .main .form-details form input#cardCvc {
+  margin-top: 10px;
+}
+
+.main .form-details form input#cardCvc {
+  width: 100%;
+}
+
 .main .form-details form #errorMassage,
 .main .form-details form #numerrorMasg,
 .main .form-details form #YYDaterrorMasg,
@@ -178,8 +206,9 @@ body .bg-disktop {
 .main .form-details form #cvcDaterrorMasg {
   font-size: .75rem;
   font-size: 500;
-  color: var(--White);
+  color: var(--Red);
   padding: 2px 0 0 2px;
+  display: none;
 }
 
 .main .form-details form .flex {
@@ -188,12 +217,12 @@ body .bg-disktop {
   margin-bottom: 40px;
 }
 
-.main .form-details form .flex .expairdat {
+.main .form-details form .flex .inexpairdat input {
   width: 90px;
   margin-right: 5px;
 }
 
-.main .form-details form .flex .cvc {
+.main .form-details form .flex #cardCvc {
   width: 135px;
 }
 
@@ -228,51 +257,32 @@ button:hover {
   background-color: rgba(33, 9, 47, 0.8);
 }
 
-@media screen and (max-width: 1024px) {
-  .card-fornt {
-    left: 75px;
-  }
-  .card-back {
-    left: 140px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body,
+@media only screen and (max-width: 1200px) {
   .main {
-    flex-direction: column;
-  }
-  .bg-disktop {
-    display: none;
-  }
-  body .bg-mobil {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    top: 0;
-    left: 0;
+    height: 100vh !important;
   }
   .card-fornt {
-    top: 100px;
-    z-index: 5;
+    left: 140px !important;
+    top: 30px !important;
   }
   .card-back {
-    top: 0;
-    left: 300px;
+    left: 180px !important;
+    bottom: 30px !important;
   }
   .bg-card-fornt,
   .bg-card-back {
-    max-width: 400px;
-    width: 100%;
+    max-width: 350px !important;
+    width: 100% !important;
   }
   .card-cvc {
-    top: 97px;
-    bottom: 0;
-    right: 45px;
+    top: 88px !important;
+    bottom: 0 !important;
+    right: 45px !important;
   }
-  .form-details {
-    flex: 0 1 50%;
+  .card-num-d {
+    font-size: 20px !important;
+    letter-spacing: 4px !important;
+    bottom: 70px !important;
   }
 }
 
@@ -296,6 +306,81 @@ button:hover {
     letter-spacing: 4px !important;
     bottom: 60px !important;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .card-fornt {
+    left: 75px !important;
+  }
+  .card-back {
+    left: 140px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  .main {
+    flex-direction: column !important;
+  }
+  .bg-disktop {
+    display: none !important;
+  }
+  body .bg-mobil {
+    display: block;
+    position: absolute !important;
+    width: 100% !important;
+    height: 300px !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .card-num-d {
+    font-size: 22px !important;
+  }
+  .card-fornt {
+    top: 100px !important;
+    z-index: 5 !important;
+  }
+  .card-back {
+    top: 0 !important;
+    left: 300px !important;
+  }
+  .bg-card-fornt,
+  .bg-card-back {
+    max-width: 400px !important;
+    width: 100% !important;
+  }
+  .card-cvc {
+    top: 97px !important;
+    bottom: 0 !important;
+    right: 45px !important;
+  }
+  .form-details {
+    flex: 0 1 50% !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body .bg-mobil {
+    height: 259px !important;
+  }
+  .bg-card-fornt,
+  .bg-card-back {
+    max-width: 300px !important;
+  }
+  .card-fornt {
+    top: 112px !important;
+    left: 30px !important;
+  }
+  .card-back {
+    left: 100px !important;
+    top: 20px !important;
+    right: 10px;
+  }
+  .card-num-d {
+    font-size: 14px !important;
+    letter-spacing: 4px !important;
+    bottom: 60px !important;
+  }
   .card-holder-d {
     font-size: 12px !important;
   }
@@ -310,8 +395,8 @@ button:hover {
   }
   .card-cvc {
     bottom: unset !important;
-    top: 75px !important;
-    right: 38px !important;
+    top: 64px !important;
+    right: 33px !important;
   }
   .form-details {
     position: relative !important;
