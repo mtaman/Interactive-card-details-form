@@ -190,7 +190,7 @@ body .bg-disktop {
   border-left-color: #600594;
 }
 
-.main .form-details form input.error {
+.main .form-details form input.error, .main .form-details form input.error:focus {
   border-top-color: #ff5252;
   border-right-color: #ff5252;
   border-bottom-color: #ff5252;

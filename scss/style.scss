@@ -197,7 +197,8 @@ body {
                     border-left-color: hsl(278, 94%, 30%);
                 }
 
-                &.error {
+                &.error,
+                &.error:focus {
                     border-top-color: hsl(0, 100%, 66%);
                     border-right-color: hsl(0, 100%, 66%);
                     border-bottom-color: hsl(0, 100%, 66%);
