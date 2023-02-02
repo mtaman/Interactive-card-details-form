@@ -73,9 +73,11 @@ function inputcardNumber() {
     } else {
         numerrorMasg.style.display = "none";
         fNum.classList.remove('error');
-
+        myCardNumber = true;
     }
     cardDNum.innerHTML = cc_format(val) || "0000 0000 0000 0000";
+
+
 
 }
 function inputMM() {
@@ -94,8 +96,15 @@ function inputMM() {
         fDMM.classList.remove('error');
     }
 
-    cardDMM.innerHTML = fDMM.value || "00";
+
+    if (val.length < 2 && val != "") {
+        cardDMM.innerHTML = "0" + fDMM.value || "00";
+    } else {
+        cardDMM.innerHTML = fDMM.value || "00";
+    }
+
     (val) ? myCardMM = true : myCardMM = false;
+    dateEx(val, null);
 
 }
 
@@ -114,11 +123,68 @@ function inputYY() {
     cardDYY.innerHTML = val || "00";
 
     (val) ? myCardYY = true : myCardYY = false;
+    dateEx(null, val);
+}
+
+function dateEx(inM = null, inY = null) {
+    let MM = fDMM.value;
+    let YY = fDYY.value;
+    let Y = new Date().getFullYear().toString().substr(-2);
+    let M = new Date().getMonth() + 1;
+
+    if (inM != null) {
+
+        if (MM > 12) {
+            MMrrorMasg.innerHTML = "Wrong forma";
+            MMrrorMasg.style.display = "block";
+            fDMM.classList.add('error');
+            myCardMM = false;
+        } else {
+            MMrrorMasg.style.display = "none";
+            fDMM.classList.remove('error');
+        }
+
+    }
+    if (inY != null) {
+        if (Y > YY) {
+            YYrrorMasg.innerHTML = "Expired";
+            YYrrorMasg.style.display = "block";
+            fDYY.classList.add('error');
+            myCardYY = false;
+        } else {
+            YYrrorMasg.style.display = "none";
+            fDMM.classList.remove('error');
+        }
+
+    }
+
+
+    console.log(M);
 
 }
 
+function inputCvc() {
+    fDCvc.maxLength = 3;
+    let val = fDCvc.value;
+    if (isNaN(val)) {
+        cvcrrorMasg.innerHTML = "Wrong format numbers only";
+        cvcrrorMasg.style.display = "block";
+        fDCvc.classList.add('error');
+        cardCVC.innerHTML = "00";
+    } else {
+        cvcrrorMasg.style.display = "none";
+        fDCvc.classList.remove('error');
+    }
+    cardCVC.innerHTML = val || "000";
+    if (val.length != 3) {
+        myCardCvc = false;
+    } else {
+        (val) ? myCardCvc = true : myCardCvc = false;
+    }
 
-function inputCvc() { }
+
+
+}
 
 
 // Buttons
@@ -155,10 +221,18 @@ let bConfirmClick = () => {
         cvcrrorMasg.style.display = "block";
         fDCvc.classList.add('error');
     }
-
+    if (myCardNumber && myCardMM && myCardYY && myCardCvc) {
+        form.classList.add("hiden");
+        thanks.classList.remove("hiden");
+    }
 
 };
 bConfirm.addEventListener('click', bConfirmClick);
+bThank.addEventListener("click", () => {
 
+    form.classList.remove("hiden");
+    thanks.classList.add("hiden");
+    form.reset();
+});
 
 
